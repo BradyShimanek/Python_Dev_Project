@@ -12,10 +12,13 @@ __pycache__/
 .vscode/
 *.swp
 
+# macOS
+.DS_Store
+
 # Environment variables
 .env
 
 # Distribution
 dist/
 build/
-*.egg-info/
+*.egg-info/m1_submission/

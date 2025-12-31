@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Python: module phase_1.aussie_weather</title>
+</head>
+
+<body>
+
+    <table class="heading">
+        <tr class="heading-text decor">
+            <td class="title">
+                &nbsp;<br>
+                <strong class="title">
+                    <a href="phase_1.html" class="white">phase_1</a>.aussie_weather
+                </strong>
+            </td>
+            <td class="extra">
+                <tr>
+                    <a href="file:/Users/bradyshimanek/Documents/UVU/spring2026/PythonDev/phase_1/aussie_weather.py">
+                        /Users/bradyshimanek/Documents/UVU/spring2026/PythonDev/phase_1/aussie_weather.py
+                    </a>
+                </tr>
+            </td>
+        </tr>
+    </table>
+
+    <!-- Navigation -->
+    <p>
+        <a href=".">Index</a>
+    </p>
+
+    <p>
+        <span class="code">
+            Australian&nbsp;Weather&nbsp;Data&nbsp;Processor<br>
+            &nbsp;<br>
+            This&nbsp;module&nbsp;reads&nbsp;and&nbsp;processes&nbsp;Australian&nbsp;weather&nbsp;data&nbsp;from&nbsp;CSV&nbsp;files.<br>
+            It&nbsp;provides&nbsp;functions&nbsp;to&nbsp;load&nbsp;weather&nbsp;data&nbsp;into&nbsp;pandas&nbsp;DataFrames&nbsp;and<br>
+            store&nbsp;column&nbsp;names&nbsp;in&nbsp;a&nbsp;list&nbsp;for&nbsp;further&nbsp;processing.<br>
+            &nbsp;<br>
+            Author:&nbsp;Brady&nbsp;Shimanek<br>
+            Course:&nbsp;Python&nbsp;Development&nbsp;-&nbsp;Spring&nbsp;2026<br>
+            &nbsp;<br>
+            NOTE:&nbsp;AI&nbsp;was&nbsp;used&nbsp;to&nbsp;assist&nbsp;in&nbsp;the&nbsp;creation&nbsp;of&nbsp;the&nbsp;documentation&nbsp;for&nbsp;this&nbsp;project.
+        </span>
+    </p>
+
+    <!-- Modules Section -->
+    <table class="section">
+        <tr class="decor pkg-content-decor heading-text">
+            <td class="section-title" colspan=3>
+                &nbsp;<br>
+                <strong class="bigsection">Modules</strong>
+            </td>
+        </tr>
+        <tr>
+            <td class="decor pkg-content-decor">
+                <span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            </td>
+            <td>&nbsp;</td>
+            <td class="singlecolumn">
+                <table>
+                    <tr>
+                        <td class="multicolumn">
+                            <a href="pandas.html">pandas</a><br>
+                        </td>
+                        <td class="multicolumn"></td>
+                        <td class="multicolumn"></td>
+                        <td class="multicolumn"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <!-- Functions Section -->
+    <table class="section">
+        <tr class="decor functions-decor heading-text">
+            <td class="section-title" colspan=3>
+                &nbsp;<br>
+                <strong class="bigsection">Functions</strong>
+            </td>
+        </tr>
+        <tr>
+            <td class="decor functions-decor">
+                <span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            </td>
+            <td>&nbsp;</td>
+            <td class="singlecolumn">
+
+                <!-- Function: add_contents_to_weather_data -->
+                <dl>
+                    <dt>
+                        <a name="-add_contents_to_weather_data">
+                            <strong>add_contents_to_weather_data</strong>
+                        </a>(content)
+                    </dt>
+                    <dd>
+                        <span class="code">
+                            Add&nbsp;DataFrame&nbsp;column&nbsp;names&nbsp;to&nbsp;the&nbsp;weather_data&nbsp;list.<br>
+                            &nbsp;<br>
+                            Args:<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;content&nbsp;(pandas.DataFrame):&nbsp;The&nbsp;DataFrame&nbsp;whose&nbsp;column&nbsp;names<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;be&nbsp;added&nbsp;to&nbsp;the&nbsp;weather_data&nbsp;list.
+                        </span>
+                    </dd>
+                </dl>
+
+                <!-- Function: load_weather_data -->
+                <dl>
+                    <dt>
+                        <a name="-load_weather_data">
+                            <strong>load_weather_data</strong>
+                        </a>(file_name)
+                    </dt>
+                    <dd>
+                        <span class="code">
+                            Load&nbsp;weather&nbsp;data&nbsp;from&nbsp;a&nbsp;CSV&nbsp;file&nbsp;into&nbsp;a&nbsp;pandas&nbsp;DataFrame.<br>
+                            &nbsp;<br>
+                            Args:<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;file_name&nbsp;(str):&nbsp;The&nbsp;path&nbsp;to&nbsp;the&nbsp;CSV&nbsp;file&nbsp;containing&nbsp;weather&nbsp;data.<br>
+                            &nbsp;<br>
+                            Returns:<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;pandas.DataFrame:&nbsp;A&nbsp;DataFrame&nbsp;containing&nbsp;the&nbsp;weather&nbsp;data.
+                        </span>
+                    </dd>
+                </dl>
+
+                <!-- Function: write_summary_to_file -->
+                <dl>
+                    <dt>
+                        <a name="-write_summary_to_file">
+                            <strong>write_summary_to_file</strong>
+                        </a>(df, output_file)
+                    </dt>
+                    <dd>
+                        <span class="code">
+                            Write&nbsp;a&nbsp;summary&nbsp;of&nbsp;the&nbsp;weather&nbsp;data&nbsp;to&nbsp;a&nbsp;text&nbsp;file.<br>
+                            &nbsp;<br>
+                            Args:<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;df&nbsp;(pandas.DataFrame):&nbsp;The&nbsp;weather&nbsp;DataFrame&nbsp;to&nbsp;summarize.<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;output_file&nbsp;(str):&nbsp;Path&nbsp;to&nbsp;the&nbsp;output&nbsp;text&nbsp;file.
+                        </span>
+                    </dd>
+                </dl>
+
+            </td>
+        </tr>
+    </table>
+
+    <!-- Data Section -->
+    <table class="section">
+        <tr class="decor data-decor heading-text">
+            <td class="section-title" colspan=3>
+                &nbsp;<br>
+                <strong class="bigsection">Data</strong>
+            </td>
+        </tr>
+        <tr>
+            <td class="decor data-decor">
+                <span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            </td>
+            <td>&nbsp;</td>
+            <td class="singlecolumn">
+                <strong>weather_data</strong> = []
+            </td>
+        </tr>
+    </table>
+
+</body>
+
+</html>
