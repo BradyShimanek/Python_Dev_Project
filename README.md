@@ -1,53 +1,48 @@
-# Australian Weather Data Processor
+# Python Development Project
 
-A Python application that reads, processes, and analyzes Australian weather data from CSV files.
+A semester-long Python development project demonstrating professional practices, modular design, and package publishing.
 
-## Description
+## Dataset
 
-This project demonstrates professional Python development practices including:
-- Reading and parsing CSV data using pandas
-- Storing data in Python data structures
-- Writing processed data to output files
-- Proper code documentation with docstrings
-- Virtual environment setup and dependency management
+- **Source:** [Kaggle - Australian Weather Data](https://www.kaggle.com/datasets)
+- **Records:** 100,000+ weather observations
+- **Features:** Temperature, rainfall, humidity, wind speed, and more
 
-## Setup
+## Project Phases
 
-### Prerequisites
-- Python 3.x installed on your system
+### Phase 1: Environment Setup & File I/O
+- Virtual environment configuration
+- Git/GitHub source control
+- Reading CSV data with pandas
+- Writing output to files
+- Documentation with pydoc
 
-### Installation
+### Phase 2: Modularization & Package Publishing
+- Refactored code into modular package structure
+- Descriptive statistics (mean, median, mode, range)
+- Built and published package to TestPyPI
+- Package: `aussie-weather-sneakytrain`
 
-1. Clone or download this repository
+## Quick Start
 
-2. Create a virtual environment:
-   ```bash
-   python3 -m venv venv
-   ```
+```bash
+# Clone and setup
+git clone https://github.com/BradyShimanek/Python_Dev_Project
+cd PythonDev
 
-3. Activate the virtual environment:
-   ```bash
-   source venv/bin/activate
-   ```
+# Create virtual environment
+python3 -m venv venv
+source venv/bin/activate
 
-4. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+# Install dependencies
+pip install -r requirements.txt
+```
 
-## Usage
+## Install from TestPyPI
 
-1. Ensure your virtual environment is activated (you should see `(venv)` in your terminal prompt)
-
-2. Run the main script:
-   ```bash
-   python phase_1/aussie_weather.py
-   ```
-
-3. The program will:
-   - Load weather data from `data/Weather Training Data.csv`
-   - Display the number of records and statistical summary
-   - Generate a summary report at `data/weather_summary.txt`
+```bash
+pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ aussie-weather-sneakytrain
+```
 
 ## Project Structure
 
@@ -55,26 +50,23 @@ This project demonstrates professional Python development practices including:
 PythonDev/
 ├── README.md
 ├── requirements.txt
-├── venv/                          # Virtual environment (not tracked in git)
-├── data/
-│   ├── Weather Training Data.csv  # Input data
-│   └── weather_summary.txt        # Generated summary output
-└── phase_1/
-    └── aussie_weather.py          # Main application script
+├── data/                       # Weather CSV files
+├── phase_1/                    # Phase 1: Basic script
+│   └── aussie_weather.py
+└── phase_2/                    # Phase 2: Modular package
+    ├── README.md
+    ├── pyproject.toml
+    ├── main.py
+    └── aussie_weather/
+        ├── __init__.py
+        ├── loader.py
+        ├── stats.py
+        └── writer.py
 ```
-
-## Documentation
-
-To generate HTML documentation using pydoc:
-```bash
-python -m pydoc -w phase_1.aussie_weather
-```
-
-This creates `phase_1.aussie_weather.html` which can be viewed in any web browser.
 
 ## Author
 
-Brady Shimanek  
+Brady S  
 Python Development - Spring 2026  
 Utah Valley University
 

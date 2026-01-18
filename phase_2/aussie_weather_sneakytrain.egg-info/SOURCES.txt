@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+aussie_weather/__init__.py
+aussie_weather/loader.py
+aussie_weather/stats.py
+aussie_weather/writer.py
+aussie_weather_sneakytrain.egg-info/PKG-INFO
+aussie_weather_sneakytrain.egg-info/SOURCES.txt
+aussie_weather_sneakytrain.egg-info/dependency_links.txt
+aussie_weather_sneakytrain.egg-info/requires.txt
+aussie_weather_sneakytrain.egg-info/top_level.txt

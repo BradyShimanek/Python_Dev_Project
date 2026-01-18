@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aussie-weather-sneakytrain"  
+version = "0.1.2"
+description = "A package for analyzing Australian weather data"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Brady S", email = "10814781@uvu.edu"}
+]
+dependencies = [
+    "pandas>=2.0.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/BradyShimanek/Python_Dev_Project"
