@@ -1,0 +1,25 @@
+=== Weather Data Summary ===
+
+Total records: 99516
+
+Columns: ['row ID', 'Location', 'MinTemp', 'MaxTemp', 'Rainfall', 'Evaporation', 'Sunshine', 'WindGustDir', 'WindGustSpeed', 'WindDir9am', 'WindDir3pm', 'WindSpeed9am', 'WindSpeed3pm', 'Humidity9am', 'Humidity3pm', 'Pressure9am', 'Pressure3pm', 'Cloud9am', 'Cloud3pm', 'Temp9am', 'Temp3pm', 'RainToday', 'RainTomorrow']
+
+Statistical Summary:
+                 count     mean    std    min     25%     50%     75%     max
+MinTemp        99073.0    12.18   6.39   -8.5     7.6    12.0    16.8    33.9
+MaxTemp        99286.0    23.22   7.12   -4.1    17.9    22.6    28.2    48.1
+Rainfall       98537.0     2.35   8.49    0.0     0.0     0.0     0.8   371.0
+Evaporation    56985.0     5.46   4.16    0.0     2.6     4.8     7.4    86.2
+Sunshine       52199.0     7.62   3.78    0.0     4.8     8.4    10.6    14.5
+WindGustSpeed  93036.0    39.98  13.58    6.0    31.0    39.0    48.0   135.0
+WindSpeed9am   98581.0    14.00   8.90    0.0     7.0    13.0    19.0   130.0
+WindSpeed3pm   97681.0    18.65   8.80    0.0    13.0    19.0    24.0    87.0
+Humidity9am    98283.0    68.87  19.07    0.0    57.0    70.0    83.0   100.0
+Humidity3pm    97010.0    51.43  20.78    0.0    37.0    52.0    65.0   100.0
+Pressure9am    89768.0  1017.68   7.11  980.5  1013.0  1017.7  1022.4  1041.0
+Pressure3pm    89780.0  1015.29   7.05  978.2  1010.5  1015.3  1020.0  1039.6
+Cloud9am       61944.0     4.45   2.89    0.0     1.0     5.0     7.0     9.0
+Cloud3pm       59514.0     4.52   2.72    0.0     2.0     5.0     7.0     9.0
+Temp9am        98902.0    16.97   6.49   -7.0    12.3    16.7    21.5    40.2
+Temp3pm        97612.0    21.68   6.93   -5.1    16.6    21.1    26.4    46.7
+RainTomorrow   99516.0     0.22   0.42    0.0     0.0     0.0     0.0     1.0
