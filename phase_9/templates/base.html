@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aussie Weather Web App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+  </head>
+  <body>
+    <header class="site-header">
+      <h1>Aussie Weather</h1>
+      <nav>
+        <a href="{{ url_for('web.index') }}">Dashboard</a>
+        <a href="{{ url_for('web.query') }}">Query</a>
+        <a href="{{ url_for('web.visualizations') }}">Visualizations</a>
+        <a href="{{ url_for('web.history') }}">History</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      {% block content %}{% endblock %}
+    </main>
+  </body>
+</html>

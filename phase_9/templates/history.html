@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<section>
+  <h2>Query History</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Timestamp</th>
+        <th>Location</th>
+        <th>Minimum MaxTemp (C)</th>
+        <th>Rainy Only</th>
+        <th>Result Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in entries %}
+      <tr>
+        <td>{{ item.created_at }}</td>
+        <td>{{ item.location }}</td>
+        <td>{{ item.min_max_temp }}</td>
+        <td>{{ item.rainy_only }}</td>
+        <td>{{ item.result_count }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endblock %}
