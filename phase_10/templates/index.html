@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<section>
+  <h2>Dataset Overview</h2>
+  <div class="metrics-grid">
+    <article class="metric-card">
+      <h3>Records</h3>
+      <p>{{ metrics.record_count }}</p>
+    </article>
+    <article class="metric-card">
+      <h3>Columns</h3>
+      <p>{{ metrics.column_count }}</p>
+    </article>
+    <article class="metric-card">
+      <h3>Average Max Temp</h3>
+      <p>{{ metrics.average_max_temp }} C</p>
+    </article>
+    <article class="metric-card">
+      <h3>Total Rainfall</h3>
+      <p>{{ metrics.total_rainfall }} mm</p>
+    </article>
+  </div>
+</section>
+
+<section>
+  <h2>Top Locations by Average Rainfall</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Location</th>
+        <th>Average Rainfall (mm)</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for location, rainfall in metrics.top_locations %}
+      <tr>
+        <td>{{ location }}</td>
+        <td>{{ rainfall }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endblock %}

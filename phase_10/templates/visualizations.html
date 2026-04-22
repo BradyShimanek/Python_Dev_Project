@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<section>
+  <h2>Visualizations</h2>
+  <p>Charts are generated from the current weather dataset.</p>
+  <div class="plots-grid">
+    {% for filename in files %}
+    <article class="plot-card">
+      <h3>{{ filename }}</h3>
+      <img src="{{ url_for('static', filename='plots/' + filename) }}" alt="{{ filename }}" />
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

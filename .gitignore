@@ -33,3 +33,8 @@ m8_submission/
 m9_submission/
 phase_9/weather_app.db
 phase_9/static/plots/
+m10_submission/
+phase_10/models/*.joblib
+phase_10/models/training_metrics.json
+phase_10/weather_app.db
+phase_10/static/plots/

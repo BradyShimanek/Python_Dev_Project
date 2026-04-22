@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+{% block content %}
+<section>
+  <h2>Rain "tomorrow" (model)</h2>
+  <p>
+    Trained on the weather dataset: logistic regression with numeric scaling and one-hot encoded
+    categorical fields. If you leave fields blank, the model fills those values in based on what
+    it learned from the training data.
+  </p>
+
+  {% if metrics %}
+  <p class="metrics-inline">
+    Holdout accuracy: <strong>{{ "%.4f"|format(metrics.holdout_accuracy) }}</strong>
+    (train {{ metrics.n_train }}, test {{ metrics.n_test }})
+  </p>
+  {% endif %}
+
+  {% if not model_ready %}
+  <p class="notice">
+    No trained model file found. From the project root, run:
+    <code>python phase_10/train_rain_model.py</code>
+    then restart the app.
+  </p>
+  {% endif %}
+
+  {% if error %}
+  <p class="error">{{ error }}</p>
+  {% endif %}
+
+  {% if result %}
+  <div class="prediction-result">
+    <p><strong>{{ result.prediction_text }}</strong></p>
+    <p>Estimated probability of rain tomorrow: <strong>{{ "%.1f"|format(result.rain_probability * 100) }}%</strong></p>
+  </div>
+  {% endif %}
+</section>
+
+{% if model_ready %}
+<section>
+  <h3>Input</h3>
+  <form method="post" class="predict-form">
+    <label for="Location">Location</label>
+    <select id="Location" name="Location">
+      <option value="">—</option>
+      {% for loc in locations %}
+      <option value="{{ loc }}" {% if form and form.get('Location') == loc %}selected{% endif %}>{{ loc }}</option>
+      {% endfor %}
+    </select>
+
+    <label for="RainToday">Rain today</label>
+    <select id="RainToday" name="RainToday">
+      <option value="">—</option>
+      <option value="Yes" {% if form and form.get('RainToday') == 'Yes' %}selected{% endif %}>Yes</option>
+      <option value="No" {% if form and form.get('RainToday') == 'No' %}selected{% endif %}>No</option>
+    </select>
+
+    <div class="field-grid">
+      <div>
+        <label for="MinTemp">Min temp (°C)</label>
+        <input id="MinTemp" name="MinTemp" type="number" step="any" value="{{ form.get('MinTemp', '') if form else '' }}" />
+      </div>
+      <div>
+        <label for="MaxTemp">Max temp (°C)</label>
+        <input id="MaxTemp" name="MaxTemp" type="number" step="any" value="{{ form.get('MaxTemp', '') if form else '' }}" />
+      </div>
+      <div>
+        <label for="Rainfall">Rainfall (mm)</label>
+        <input id="Rainfall" name="Rainfall" type="number" step="any" value="{{ form.get('Rainfall', '') if form else '' }}" />
+      </div>
+      <div>
+        <label for="Evaporation">Evaporation</label>
+        <input id="Evaporation" name="Evaporation" type="number" step="any" value="{{ form.get('Evaporation', '') if form else '' }}" />
+      </div>
+      <div>
+        <label for="Sunshine">Sunshine</label>
+        <input id="Sunshine" name="Sunshine" type="number" step="any" value="{{ form.get('Sunshine', '') if form else '' }}" />
+      </div>
+      <div>
+        <label for="WindGustSpeed">Wind gust speed</label>
+        <input id="WindGustSpeed" name="WindGustSpeed" type="number" step="any" value="{{ form.get('WindGustSpeed', '') if form else '' }}" />
+      </div>
+      <div>
+        <label for="WindSpeed9am">Wind speed 9am</label>
+        <input id="WindSpeed9am" name="WindSpeed9am" type="number" step="any" value="{{ form.get('WindSpeed9am', '') if form else '' }}" />
+      </div>
+      <div>
+        <label for="WindSpeed3pm">Wind speed 3pm</label>
+        <input id="WindSpeed3pm" name="WindSpeed3pm" type="number" step="any" value="{{ form.get('WindSpeed3pm', '') if form else '' }}" />
+      </div>
+      <div>
+        <label for="Humidity9am">Humidity 9am (%)</label>
+        <input id="Humidity9am" name="Humidity9am" type="number" step="any" value="{{ form.get('Humidity9am', '') if form else '' }}" />
+      </div>
+      <div>
+        <label for="Humidity3pm">Humidity 3pm (%)</label>
+        <input id="Humidity3pm" name="Humidity3pm" type="number" step="any" value="{{ form.get('Humidity3pm', '') if form else '' }}" />
+      </div>
+      <div>
+        <label for="Pressure9am">Pressure 9am</label>
+        <input id="Pressure9am" name="Pressure9am" type="number" step="any" value="{{ form.get('Pressure9am', '') if form else '' }}" />
+      </div>
+      <div>
+        <label for="Pressure3pm">Pressure 3pm</label>
+        <input id="Pressure3pm" name="Pressure3pm" type="number" step="any" value="{{ form.get('Pressure3pm', '') if form else '' }}" />
+      </div>
+      <div>
+        <label for="Cloud9am">Cloud 9am</label>
+        <input id="Cloud9am" name="Cloud9am" type="number" step="any" value="{{ form.get('Cloud9am', '') if form else '' }}" />
+      </div>
+      <div>
+        <label for="Cloud3pm">Cloud 3pm</label>
+        <input id="Cloud3pm" name="Cloud3pm" type="number" step="any" value="{{ form.get('Cloud3pm', '') if form else '' }}" />
+      </div>
+      <div>
+        <label for="Temp9am">Temp 9am (°C)</label>
+        <input id="Temp9am" name="Temp9am" type="number" step="any" value="{{ form.get('Temp9am', '') if form else '' }}" />
+      </div>
+      <div>
+        <label for="Temp3pm">Temp 3pm (°C)</label>
+        <input id="Temp3pm" name="Temp3pm" type="number" step="any" value="{{ form.get('Temp3pm', '') if form else '' }}" />
+      </div>
+    </div>
+
+    <label for="WindGustDir">Wind gust direction</label>
+    <select id="WindGustDir" name="WindGustDir">
+      <option value="">—</option>
+      {% for d in wind_dirs %}
+      <option value="{{ d }}" {% if form and form.get('WindGustDir') == d %}selected{% endif %}>{{ d }}</option>
+      {% endfor %}
+    </select>
+
+    <label for="WindDir9am">Wind direction 9am</label>
+    <select id="WindDir9am" name="WindDir9am">
+      <option value="">—</option>
+      {% for d in wind_dirs %}
+      <option value="{{ d }}" {% if form and form.get('WindDir9am') == d %}selected{% endif %}>{{ d }}</option>
+      {% endfor %}
+    </select>
+
+    <label for="WindDir3pm">Wind direction 3pm</label>
+    <select id="WindDir3pm" name="WindDir3pm">
+      <option value="">—</option>
+      {% for d in wind_dirs %}
+      <option value="{{ d }}" {% if form and form.get('WindDir3pm') == d %}selected{% endif %}>{{ d }}</option>
+      {% endfor %}
+    </select>
+
+    <button type="submit">Predict</button>
+  </form>
+</section>
+{% endif %}
+{% endblock %}
